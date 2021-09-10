@@ -74,7 +74,7 @@ const BlogPostTemplate = props => {
                 <Box className={classes.boxRoot}>
                   <Box>
                     {
-                      tags.map(tag => <Chip className={classes.chipRoot} style={getStyle(tag)} label={tag} />)
+                      tags.map(tag => <Chip key={tag} className={classes.chipRoot} style={getStyle(tag)} label={tag} />)
                     }
                   </Box>
                   <Typography className={classes.typoRoot} variant="h6">

@@ -1,37 +1,40 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import BlogCard from "../components/BlogCard";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import BlogCard from "../components/BlogCard"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import TagList from "../components/TagList"
+import { Grid } from "@material-ui/core"
 
-const Tags = ({ pageContext, data }) => {
-    const { tag } = pageContext
-    const { edges, totalCount } = data.allMarkdownRemark
-    const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"
-        } tagged with "${tag}"`
-    const posts = edges.map(item => item.node);
-    return (
-        <div>
-            <h1>{tagHeader}</h1>
-            {/* <ul>
-                {edges.map(({ node }) => {
-                    const { slug } = node.fields
-                    const { title } = node.frontmatter
-                    return (
-                        <li key={slug}>
-                            <Link to={slug}>{title}</Link>
-                        </li>
-                    )
-                })}
-            </ul> */}
-            <Link to="/tags">All tags</Link>
-            <BlogCard posts={posts} />
-        </div>
-    )
+const Tags = ({ data, location }) => {
+  const { edges } = data.allMarkdownRemark
+  const posts = edges.map(item => item.node)
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo title="All posts" />
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={9} md={9}>
+          <BlogCard posts={posts} />
+        </Grid>
+        <Grid item xs={12} sm={3} md={3}>
+          <TagList />
+        </Grid>
+      </Grid>
+    </Layout>
+  )
 }
 
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
