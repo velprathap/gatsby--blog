@@ -3,15 +3,12 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  InputBase,
   makeStyles,
   alpha,
   IconButton,
   Grid,
 } from "@material-ui/core"
-import SearchIcon from "@material-ui/icons/Search"
 import GitHubIcon from "@material-ui/icons/GitHub"
-import FacebookIcon from "@material-ui/icons/Facebook"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import HomeIcon from "@material-ui/icons/Home"

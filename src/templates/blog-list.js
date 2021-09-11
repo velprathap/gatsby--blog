@@ -6,7 +6,7 @@ import BlogCard from "../components/BlogCard";
 import Paginator from "../components/Paginator";
 
 const BlogIndex = (props) => {
-  const { data, location, pageContext, path } = props;
+  const { data, location, pageContext } = props;
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
@@ -27,7 +27,7 @@ const BlogIndex = (props) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <BlogCard posts={posts} />
-      <Paginator totalCount={posts.length} pageContext={pageContext} base={path}/>      
+      <Paginator pageContext={pageContext}/>      
     </Layout>
   )
 }

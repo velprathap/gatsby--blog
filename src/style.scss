@@ -19,20 +19,6 @@ body {
         background-color: $bgColor;
     }
 
-    .cs-main {
-        min-height: 80vh;
-
-        .card-container {
-            min-height: 72vh;
-            
-            .post-card-container {
-                .MuiPaper-root {
-                    max-width: initial;
-                }
-            }
-        }
-    }
-
     .cs-footer {
         color: $fontColor;
         background-color: $bgColor;

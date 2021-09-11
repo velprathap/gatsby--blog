@@ -3,8 +3,18 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import TagList from "../components/TagList"
-import { Paper, makeStyles, Typography, Box, Chip, Grid } from "@material-ui/core"
-import Img from 'gatsby-image';
+import {
+  Paper,
+  makeStyles,
+  Typography,
+  Box,
+  Chip,
+  Grid,
+  Button,
+} from "@material-ui/core"
+import Img from "gatsby-image"
+import ArrowBack from "@material-ui/icons/ArrowBack"
+import ArrowForward from "@material-ui/icons/ArrowForward"
 
 const useStyles = makeStyles({
   root: {
@@ -13,44 +23,49 @@ const useStyles = makeStyles({
   typoRoot: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   boxRoot: {
     display: "flex",
     justifyContent: "space-around",
     alignItems: "center",
-    margin: "1rem"
+    margin: "1rem",
   },
   chipRoot: {
-    margin: "0 .25rem"
+    margin: "0 .25rem",
+  },
+  btnRoot: {
+    textDecoration: "none"
   }
-});
+})
 
 const BlogPostTemplate = props => {
-  const classes = useStyles();
-  const { data, location, pageContext } = props;
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const previous = pageContext.previous;
-  const next = pageContext.next;
-  const imgSrc = (post.frontmatter.thumb && post.frontmatter.thumb.childImageSharp.fluid) || null;
-  const tags = post.frontmatter.tags;
+  const classes = useStyles()
+  const { data, location, pageContext } = props
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const previous = pageContext.previous
+  const next = pageContext.next
+  const imgSrc =
+    (post.frontmatter.thumb && post.frontmatter.thumb.childImageSharp.fluid) ||
+    null
+  const tags = post.frontmatter.tags
 
   const getStyle = tag => {
     if (tag === "JavaScript") {
-      return { backgroundColor: "yellow" };
+      return { backgroundColor: "#FED9C9" }
     }
     if (tag === "React JS") {
-      return { backgroundColor: "blue" };
+      return { backgroundColor: "#DEF3FD" }
     }
     if (tag === "Css") {
-      return { backgroundColor: "green" };
+      return { backgroundColor: "#FFEFD8" }
     }
     if (tag === "Sass") {
-      return { backgroundColor: "pink" };
+      return { backgroundColor: "#FFDDE4" }
     }
     if (tag === "Angular") {
-      return { backgroundColor: "orange" };
+      return { backgroundColor: "#FF7F7F" }
     }
   }
   return (
@@ -73,9 +88,14 @@ const BlogPostTemplate = props => {
                 </Typography>
                 <Box className={classes.boxRoot}>
                   <Box>
-                    {
-                      tags.map(tag => <Chip key={tag} className={classes.chipRoot} style={getStyle(tag)} label={tag} />)
-                    }
+                    {tags.map(tag => (
+                      <Chip
+                        key={tag}
+                        className={classes.chipRoot}
+                        style={getStyle(tag)}
+                        label={tag}
+                      />
+                    ))}
                   </Box>
                   <Typography className={classes.typoRoot} variant="h6">
                     {post.frontmatter.date}
@@ -103,15 +123,29 @@ const BlogPostTemplate = props => {
             >
               <li>
                 {previous && (
-                  <Link to={previous.fields.slug} rel="prev">
-                    ← {previous.frontmatter.title}
+                  <Link to={previous.fields.slug} rel="prev" className={classes.btnRoot}>
+                    <Button
+                      variant="contained"
+                      color="default"
+                      className={classes.button}
+                      startIcon={<ArrowBack />}
+                    >
+                      {previous.frontmatter.title}
+                    </Button>
                   </Link>
                 )}
               </li>
               <li>
                 {next && (
-                  <Link to={next.fields.slug} rel="next">
-                    {next.frontmatter.title} →
+                  <Link to={next.fields.slug} rel="next" className={classes.btnRoot}>
+                    <Button
+                      variant="contained"
+                      color="default"
+                      className={classes.button}
+                      endIcon={<ArrowForward />}
+                    >
+                      {next.frontmatter.title}
+                    </Button>
                   </Link>
                 )}
               </li>
@@ -135,8 +169,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(
-      fields: { slug: { eq: $slug}}) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html

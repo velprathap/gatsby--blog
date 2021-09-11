@@ -2,23 +2,32 @@ import React from "react"
 import kebabCase from "lodash/kebabCase"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { Paper, Chip, makeStyles } from "@material-ui/core"
-import "./TagList.scss"
 
 const useStyles = makeStyles({
+  paperRoot: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  chipRoot: {
+    padding: ".5rem",
+    lineHeight: "32px",
+    textDecoration: "none",
+    display: "block",
+  },
   reactBg: {
-    backgroundColor: "hsl(195, 100%, 50%)",
+    backgroundColor: "#DEF3FD", //hsl(195, 100%, 50%)",
   },
   jsBg: {
-    backgroundColor: "hsl(60, 100%, 50%)",
+    backgroundColor: "#FED9C9", //"hsl(60, 100%, 50%)",
   },
   cssBg: {
-    backgroundColor: "hsl(285, 100%, 50%)",
+    backgroundColor: "#FFEFD8", //"hsl(285, 100%, 50%)",
   },
   sassBg: {
-    backgroundColor: "hsl(0, 100%, 90%)",
+    backgroundColor: "#FFDDE4", //"hsl(0, 100%, 90%)",
   },
   angularBg: {
-    backgroundColor: "hsl(0, 95%, 50%)",
+    backgroundColor: "#FF7F7F", //"hsl(0, 95%, 50%)",
   },
 })
 
@@ -60,11 +69,11 @@ const TagList = () => {
   `)
 
   return (
-    <Paper className="tag-list">
+    <Paper className={classes.paperRoot}>
       {data.allMarkdownRemark.group.map(tag => (
         <Link
           key={tag.fieldValue}
-          className="cs-tag-chip"
+          className={classes.chipRoot}
           to={`/tags/${kebabCase(tag.fieldValue)}/`}
         >
           <Chip
