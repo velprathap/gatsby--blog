@@ -120,21 +120,21 @@ const About = ({ data, location }) => {
             className={`${classes.centerAlign} ${classes.paddingRoot}`}
           >
             <IconButton
-              href="https://www.twitter.com/codingsparkles"
-              aria-label="Go to My Twitter"
+              href="https://www.linkedin.com/in/velmurugan-sivapraksam-4aa108174"
+              aria-label="Go to My LinkedIn"
               target="_blank"
             >
               <LinkedInIcon />
             </IconButton>
             <IconButton
-              href="https://www.instagram.com/codingsparkles"
+              href="https://www.instagram.com/velprathap"
               aria-label="Go to My Instagram"
               target="_blank"
             >
               <InstagramIcon />
             </IconButton>
             <IconButton
-              href="https://www.twitter.com/codingsparkles"
+              href="https://www.twitter.com/velprathap"
               aria-label="Go to My Twitter"
               target="_blank"
             >

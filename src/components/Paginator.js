@@ -24,21 +24,21 @@ const Paginator = ({ pageContext }) => {
 
     return <Box className={classes.root}>
         <Link className={`link-container ${isFirst ? "disabled" : ""}`} to={prevPage} rel="prev">
-            <div className="prev-page page-link">
+            <Box className="prev-page page-link">
                 <ChevronLeft />
-            </div>
+            </Box>
         </Link>
         {Array.from({ length: numPages }, (_, i) => (
             <Link className="link-container" key={`pagination-number${i + 1}`} to={`/${i === 0 ? "" : i + 1}`}>
-                <div className={`page-number page-link ${currentPage === i + 1 ? "active-page" : ""}`}>
+                <Box className={`page-number page-link ${currentPage === i + 1 ? "active-page" : ""}`}>
                     {i + 1}
-                </div>
+                </Box>
             </Link>
         ))}
         <Link className={`link-container ${isLast ? "disabled" : ""}`} to={nextPage} rel="next">
-            <div className="next-page page-link">
+            <Box className="next-page page-link">
                 <ChevronRight />
-            </div>
+            </Box>
         </Link>
     </Box>
 }

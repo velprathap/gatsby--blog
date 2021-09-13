@@ -105,7 +105,7 @@ const BlogPostTemplate = props => {
               <Paper>
                 <Img fluid={imgSrc} />
               </Paper>
-              <section
+              <Typography paragraph={true}
                 dangerouslySetInnerHTML={{ __html: post.html }}
                 itemProp="articleBody"
               />

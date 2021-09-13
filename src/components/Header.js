@@ -7,6 +7,7 @@ import {
   alpha,
   IconButton,
   Grid,
+  Box,
 } from "@material-ui/core"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import InstagramIcon from "@material-ui/icons/Instagram"
@@ -81,8 +82,8 @@ const useStyles = makeStyles(theme => ({
 const Header = ({ title }) => {
   const classes = useStyles()
   return (
-    <div className="cs-header">
-      <div className={`${classes.root} header-wrapper`}>
+    <Box className="cs-header">
+      <Box className={`${classes.root} header-wrapper`}>
         <AppBar position="fixed" className="cs-app-bar">
           <Toolbar>
             <Grid className={classes.gridRoot} container spacing={1}>
@@ -97,10 +98,10 @@ const Header = ({ title }) => {
                   {title}
                 </Typography>
               </Grid>
-              {/* <div className={classes.search}>
-                            <div className={classes.searchIcon}>
+              {/* <Box className={classes.search}>
+                            <Box className={classes.searchIcon}>
                                 <SearchIcon />
-                            </div>
+                            </Box>
                             <InputBase
                                 placeholder="Search…"
                                 classes={{
@@ -109,7 +110,7 @@ const Header = ({ title }) => {
                                 }}
                                 inputProps={{ 'aria-label': 'search' }}
                             />
-                        </div> */}
+                        </Box> */}
               <Grid
                 className={`${classes.root} ${classes.pageRoot}`}
                 item
@@ -117,7 +118,7 @@ const Header = ({ title }) => {
                 sm={6}
                 md={6}
               >
-                <div>
+                <Box>
                   <IconButton href="/" aria-label="Go to My Home">
                     <HomeIcon />
                   </IconButton>
@@ -142,13 +143,13 @@ const Header = ({ title }) => {
                   >
                     <TwitterIcon />
                   </IconButton>
-                </div>
+                </Box>
               </Grid>
             </Grid>
           </Toolbar>
         </AppBar>
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 

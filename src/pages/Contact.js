@@ -15,7 +15,7 @@ import {
 import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import GitHubIcon from "@material-ui/icons/GitHub"
-import contactImg from "../images/contact-us.jpg"
+import { StaticImage } from "gatsby-plugin-image"
 
 const useStyles = makeStyles({
   centerAlign: {
@@ -63,10 +63,10 @@ const Contact = ({ data, location }) => {
         <Box className={`${classes.boxRoot} ${classes.centerAlign}`}>
           <Grid container>
             <Grid item xs={12} sd={6} md={6}>
-              <img
-                src={contactImg}
-                alt="contact"
-                style={{ height: "50vh", width: "100%" }}
+              <StaticImage
+                layout="fullWidth"
+                src={"../images/contact-us.jpg"}
+                alt="Contact"
               />
             </Grid>
             <Grid
@@ -94,7 +94,7 @@ const Contact = ({ data, location }) => {
                 <Typography className={classes.bold} variant="h6">
                   Socials:
                 </Typography>
-                <div>
+                <Box>
                   <IconButton
                     href="https://www.github.com/codingsparkles"
                     aria-label="Go to My Github"
@@ -116,7 +116,7 @@ const Contact = ({ data, location }) => {
                   >
                     <TwitterIcon />
                   </IconButton>
-                </div>
+                </Box>
               </Container>
             </Grid>
           </Grid>

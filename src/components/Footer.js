@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid } from "@material-ui/core"
+import { Grid, Typography, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { Link } from "gatsby"
 
@@ -20,13 +20,19 @@ const useStyles = makeStyles(theme => ({
       justifyContent: "center",
     },
   },
+  activeLink: {
+    color: "green",
+  },
+  copyRight: {
+    textTransform: "capitalize",
+  },
 }))
 
 const Footer = () => {
   const classes = useStyles()
 
   return (
-    <div className="cs-footer">
+    <Box className="cs-footer">
       <Grid container spacing={3}>
         <Grid
           className={`${classes.root} ${classes.infoRoot}`}
@@ -35,9 +41,9 @@ const Footer = () => {
           sm={6}
           md={6}
         >
-          <div className="copyright-info">
+          <Typography variant="overline" className={classes.copyRight}>
             CodingSparkles © {new Date().getFullYear()}. All rights reserved.
-          </div>
+          </Typography>
         </Grid>
         <Grid
           className={`${classes.root} ${classes.pageRoot}`}
@@ -46,20 +52,34 @@ const Footer = () => {
           sm={6}
           md={6}
         >
-          <div className="page-menu-container">
-            <Link to="/About/" rel="About">
-              <div className="about-page">About</div>
+          <Box className="page-menu-container">
+            <Link to="/About/" rel="About" activeStyle={{ color: "#1976d2" }}>
+              <Typography variant="button" className="about-page">
+                About
+              </Typography>
             </Link>
-            <Link to="/Contact/" rel="Contact">
-              <div className="contact-page">Contact</div>
+            <Link
+              to="/Contact/"
+              rel="Contact"
+              activeStyle={{ color: "#1976d2" }}
+            >
+              <Typography variant="button" className="contact-page">
+                Contact
+              </Typography>
             </Link>
-            <Link to="/PrivacyPolicy/" rel="Privacy Policy">
-              <div className="privacy-page">Privacy Policy</div>
+            <Link
+              to="/PrivacyPolicy/"
+              rel="Privacy Policy"
+              activeStyle={{ color: "#1976d2" }}
+            >
+              <Typography variant="button" className="privacy-page">
+                Privacy Policy
+              </Typography>
             </Link>
-          </div>
+          </Box>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   )
 }
 
