@@ -39,42 +39,24 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
+  home: {
+    "& :hover": {
+      fill: "#1976d2",
     },
   },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  github: {
+    "& :hover": {
+      fill: "#4078c0",
+    },
   },
-  inputRoot: {
-    color: "inherit",
+  instagram: {
+    "& :hover": {
+      fill: "#E4405F",
+    },
   },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
+  twitter: {
+    "& :hover": {
+      fill: "#1DA1F2",
     },
   },
 }))
@@ -98,19 +80,6 @@ const Header = ({ title }) => {
                   {title}
                 </Typography>
               </Grid>
-              {/* <Box className={classes.search}>
-                            <Box className={classes.searchIcon}>
-                                <SearchIcon />
-                            </Box>
-                            <InputBase
-                                placeholder="Search…"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Box> */}
               <Grid
                 className={`${classes.root} ${classes.pageRoot}`}
                 item
@@ -119,13 +88,14 @@ const Header = ({ title }) => {
                 md={6}
               >
                 <Box>
-                  <IconButton href="/" aria-label="Go to My Home">
+                  <IconButton className={classes.home} href="/" aria-label="Go to My Home">
                     <HomeIcon />
                   </IconButton>
                   <IconButton
                     href="https://www.github.com/codingsparkles"
                     aria-label="Go to My Github"
                     target="_blank"
+                    className={classes.github}
                   >
                     <GitHubIcon />
                   </IconButton>
@@ -133,6 +103,7 @@ const Header = ({ title }) => {
                     href="https://www.instagram.com/codingsparkles"
                     aria-label="Go to My Instagram"
                     target="_blank"
+                    className={classes.instagram}
                   >
                     <InstagramIcon />
                   </IconButton>
@@ -140,6 +111,7 @@ const Header = ({ title }) => {
                     href="https://www.twitter.com/codingsparkles"
                     aria-label="Go to My Twitter"
                     target="_blank"
+                    className={classes.twitter}
                   >
                     <TwitterIcon />
                   </IconButton>

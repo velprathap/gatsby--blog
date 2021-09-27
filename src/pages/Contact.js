@@ -15,7 +15,7 @@ import {
 import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import GitHubIcon from "@material-ui/icons/GitHub"
-import { StaticImage } from "gatsby-plugin-image"
+import contact from "../images/contact-us.png"
 
 const useStyles = makeStyles({
   centerAlign: {
@@ -45,6 +45,23 @@ const useStyles = makeStyles({
   paraTypo: {
     textAlign: "center",
   },
+  imgRoot: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  img: {
+    height: "450px",
+  },
+  github: {
+    fill: "#4078c0"
+  },
+  instagram: {
+    fill: "#E4405F",
+  },
+  twitter: {
+    fill: "#1DA1F2",
+  },
 })
 
 const Contact = ({ data, location }) => {
@@ -62,12 +79,8 @@ const Contact = ({ data, location }) => {
         </Box>
         <Box className={`${classes.boxRoot} ${classes.centerAlign}`}>
           <Grid container>
-            <Grid item xs={12} sd={6} md={6}>
-              <StaticImage
-                layout="fullWidth"
-                src={"../images/contact-us.jpg"}
-                alt="Contact"
-              />
+            <Grid item xs={12} sd={6} md={6} className={classes.imgRoot}>
+              <img src={contact} alt="Contact" className={classes.img} />
             </Grid>
             <Grid
               className={`${classes.gridContent} ${classes.centerAlign} ${classes.columnDirection}`}
@@ -100,21 +113,21 @@ const Contact = ({ data, location }) => {
                     aria-label="Go to My Github"
                     target="_blank"
                   >
-                    <GitHubIcon />
+                    <GitHubIcon className={classes.github} />
                   </IconButton>
                   <IconButton
                     href="https://www.instagram.com/codingsparkles"
                     aria-label="Go to My Instagram"
                     target="_blank"
                   >
-                    <InstagramIcon />
+                    <InstagramIcon className={classes.instagram} />
                   </IconButton>
                   <IconButton
                     href="https://www.twitter.com/codingsparkles"
                     aria-label="Go to My Twitter"
                     target="_blank"
                   >
-                    <TwitterIcon />
+                    <TwitterIcon className={classes.twitter} />
                   </IconButton>
                 </Box>
               </Container>

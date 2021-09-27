@@ -53,6 +53,15 @@ const Footer = () => {
           md={6}
         >
           <Box className="page-menu-container">
+            <Link
+              to="/"
+              rel="Home"
+              activeStyle={{ color: "#1976d2" }}
+            >
+              <Typography variant="button" className="home-page">
+                Home
+              </Typography>
+            </Link>
             <Link to="/About/" rel="About" activeStyle={{ color: "#1976d2" }}>
               <Typography variant="button" className="about-page">
                 About
@@ -65,15 +74,6 @@ const Footer = () => {
             >
               <Typography variant="button" className="contact-page">
                 Contact
-              </Typography>
-            </Link>
-            <Link
-              to="/PrivacyPolicy/"
-              rel="Privacy Policy"
-              activeStyle={{ color: "#1976d2" }}
-            >
-              <Typography variant="button" className="privacy-page">
-                Privacy Policy
               </Typography>
             </Link>
           </Box>

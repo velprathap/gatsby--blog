@@ -64,6 +64,15 @@ const useSyles = makeStyles(theme => ({
     borderRadius: "50%",
     margin: "1rem",
   },
+  instagram: {
+    fill: "#E4405F",
+  },
+  twitter: {
+    fill: "#1DA1F2",
+  },
+  linkedin: {
+    fill: "#0A66C2",
+  },
 }))
 
 const About = ({ data, location }) => {
@@ -108,10 +117,9 @@ const About = ({ data, location }) => {
             Founder and Editor
           </Typography>
           <Typography className={classes.typoRoot} paragraph={true}>
-            I am a Web Developer who is loving to learn and share the knowledge.
-            I am working as a front end developer full-time and writing a blog
-            in my free time. I am excited to connect with you all through this
-            blog site and learn along with you.
+            I am a Front End Developer who is loving to learn and share
+            knowledge. I am excited to connect with you all through this blog
+            website and learn more along with you.
           </Typography>
         </Box>
         <Box>
@@ -124,23 +132,24 @@ const About = ({ data, location }) => {
               aria-label="Go to My LinkedIn"
               target="_blank"
             >
-              <LinkedInIcon />
+              <LinkedInIcon className={classes.linkedin} />
             </IconButton>
             <IconButton
               href="https://www.instagram.com/velprathap"
               aria-label="Go to My Instagram"
               target="_blank"
             >
-              <InstagramIcon />
+              <InstagramIcon className={classes.instagram} />
             </IconButton>
             <IconButton
               href="https://www.twitter.com/velprathap"
               aria-label="Go to My Twitter"
               target="_blank"
             >
-              <TwitterIcon />
+              <TwitterIcon className={classes.twitter} />
             </IconButton>
           </Container>
+          <Typography className={classes.paddingRoot} variant="h6">Happy Learning!</Typography>
         </Box>
       </Paper>
     </Layout>

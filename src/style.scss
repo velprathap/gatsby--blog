@@ -40,15 +40,15 @@ body {
 
                 .about-page,
                 .contact-page,
-                .privacy-page {
+                .home-page {
                     cursor: pointer;
 
                     &:hover {
-                        color: cornflowerblue;
+                        color: $btnColor;
                     }
                 }
 
-                .contact-page {
+                .about-page {
                     border-left: 2px solid $fontColor;
                     border-right: 2px solid $fontColor;
                     padding: 0 $footerPadding;

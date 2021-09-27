@@ -55,6 +55,7 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-reading-time`,
         ],
       },
     },
@@ -127,7 +128,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/codingsparkles.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/images/codingsparkles.jpg`, // This path is relative to the root of the site.
       },
     },
     // {

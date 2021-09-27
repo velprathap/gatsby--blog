@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import {
   Grid,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   Typography,
@@ -16,11 +15,30 @@ const useStyles = makeStyles({
   boxRoot: {
     minHeight: "72vh",
   },
-  root: {
+  cardRoot: {
     height: "100%",
   },
   actionRoot: {
     justifyContent: "center",
+  },
+  readLink: {
+    textDecoration: "none",
+
+    "& :hover": {
+      borderBottom: "1px solid #1976d2",
+    },
+  },
+  readLinkText: {
+    color: "#1976d2",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  cardContentRoot: {
+    padding: 0,
+  },
+  cardContentText: {
+    padding: "16px",
   },
 })
 
@@ -40,10 +58,10 @@ const BlogCard = ({ posts }) => {
 
             return (
               <Grid key={post.fields.slug} item xs={12} sm={6} md={4}>
-                <Card className={classes.root} key={post.fields.slug}>
-                  <CardActionArea>
+                <Card className={classes.cardRoot} key={post.fields.slug}>
+                  <CardContent className={classes.cardContentRoot}>
                     <Img fluid={imgSrc} />
-                    <CardContent>
+                    <Box className={classes.cardContentText}>
                       <Typography gutterBottom variant="h5" component="h2">
                         {title}
                       </Typography>
@@ -54,11 +72,15 @@ const BlogCard = ({ posts }) => {
                       >
                         {post.frontmatter.description || post.excerpt}
                       </Typography>
-                    </CardContent>
-                  </CardActionArea>
+                    </Box>
+                  </CardContent>
                   <CardActions className={classes.actionRoot}>
-                    <Link to={post.fields.slug} itemProp="url">
-                      Read More
+                    <Link
+                      className={classes.readLink}
+                      to={post.fields.slug}
+                      itemProp="url"
+                    >
+                      <Box className={classes.readLinkText}>Read More </Box>
                     </Link>
                   </CardActions>
                 </Card>

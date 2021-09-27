@@ -10,7 +10,6 @@ import {
   Box,
   Chip,
   Grid,
-  Button,
 } from "@material-ui/core"
 import Img from "gatsby-image"
 import ArrowBack from "@material-ui/icons/ArrowBack"
@@ -35,8 +34,41 @@ const useStyles = makeStyles({
     margin: "0 .25rem",
   },
   btnRoot: {
-    textDecoration: "none"
-  }
+    display: "flex",
+    alignItems: "center",
+  },
+  linkTextContainer: {
+    textDecoration: "none",
+
+    "& :hover": {
+      color: "#1976d2"
+    }
+  },
+  footerGrid: {
+    padding: "1rem",
+  },
+  nextPostRoot: {
+    borderLeft: "2px solid #ccc",
+  },
+  nextPost: {
+    justifyContent: "flex-end",
+
+    "& $subtitle": {
+      textAlign: "end",
+    },
+  },
+  footerIconContainer: {
+    padding: ".5rem",
+  },
+  footerIcon: {
+    fill: "#757575",
+  },
+  subtitle: {
+    color: "#757575",
+  },
+  title: {
+    color: "#333333",
+  },
 })
 
 const BlogPostTemplate = props => {
@@ -44,6 +76,7 @@ const BlogPostTemplate = props => {
   const { data, location, pageContext } = props
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const readingTime = post.fields.readingTime.text
   const previous = pageContext.previous
   const next = pageContext.next
   const imgSrc =
@@ -98,6 +131,9 @@ const BlogPostTemplate = props => {
                     ))}
                   </Box>
                   <Typography className={classes.typoRoot} variant="h6">
+                    {readingTime}
+                  </Typography>
+                  <Typography className={classes.typoRoot} variant="h6">
                     {post.frontmatter.date}
                   </Typography>
                 </Box>
@@ -105,52 +141,73 @@ const BlogPostTemplate = props => {
               <Paper>
                 <Img fluid={imgSrc} />
               </Paper>
-              <Typography paragraph={true}
+              <Typography
+                paragraph={true}
                 dangerouslySetInnerHTML={{ __html: post.html }}
                 itemProp="articleBody"
               />
             </article>
           </Paper>
-          <nav className="blog-post-nav">
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
+          <Grid container className={classes.footerGrid}>
+            <Grid item xs={6} sm={6} md={6}>
+              {previous && (
+                <Box className={classes.btnRoot}>
+                  <Box className={classes.footerIconContainer}>
+                    <ArrowBack className={classes.footerIcon} />
+                  </Box>
+                  <Box>
+                    <Typography
+                      className={classes.subtitle}
+                      variant="subtitle1"
+                    >
+                      Previous Post
+                    </Typography>
+                    <Link
+                      to={previous.fields.slug}
+                      rel="prev"
+                      className={classes.linkTextContainer}
+                    >
+                      <Typography className={classes.title} variant="h6">
+                        {previous.frontmatter.title}
+                      </Typography>
+                    </Link>
+                  </Box>
+                </Box>
+              )}
+            </Grid>
+            <Grid
+              className={`${previous ? classes.nextPostRoot : ""}`}
+              item
+              xs={6}
+              sm={6}
+              md={6}
             >
-              <li>
-                {previous && (
-                  <Link to={previous.fields.slug} rel="prev" className={classes.btnRoot}>
-                    <Button
-                      variant="contained"
-                      color="default"
-                      className={classes.button}
-                      startIcon={<ArrowBack />}
+              {next && (
+                <Box className={`${classes.btnRoot} ${classes.nextPost}`}>
+                  <Box>
+                    <Typography
+                      className={classes.subtitle}
+                      variant="subtitle1"
                     >
-                      {previous.frontmatter.title}
-                    </Button>
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={next.fields.slug} rel="next" className={classes.btnRoot}>
-                    <Button
-                      variant="contained"
-                      color="default"
-                      className={classes.button}
-                      endIcon={<ArrowForward />}
+                      Next Post
+                    </Typography>
+                    <Link
+                      to={next.fields.slug}
+                      rel="next"
+                      className={classes.linkTextContainer}
                     >
-                      {next.frontmatter.title}
-                    </Button>
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </nav>
+                      <Typography className={classes.title} variant="h6">
+                        {next.frontmatter.title}
+                      </Typography>
+                    </Link>
+                  </Box>
+                  <Box className={classes.footerIconContainer}>
+                    <ArrowForward className={classes.footerIcon} />
+                  </Box>
+                </Box>
+              )}
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item xs={12} sm={3} md={3}>
           <TagList />
@@ -183,6 +240,12 @@ export const pageQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+      fields {
+        slug
+        readingTime {
+          text
         }
       }
     }
