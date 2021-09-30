@@ -72,27 +72,28 @@ const About = ({ data, location }) => {
         >
           <Typography className={classes.typoRoot} paragraph={true}>
             I am Velmurugan Sivaprakasam, the man behind CodingSparkles. I am a
-            web developer focusing on Front End Development. Who is loving to
-            share the known and learn the unknown. I am excited to connect with
-            you all through this website and learn more along with you.
+            web developer who focuses on the front end development. Who loves to
+            share that which is known and to learn that which is unknown? I am
+            happy to connect with you through this web site and learn more along
+            with you.
           </Typography>
         </Box>
         <Box
           className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
         >
           <Typography className={classes.typoRoot} paragraph={true}>
-            I created this website with an intention to share the information
-            about web development practices, tutorials. This blog contains the
-            articles and tutorials related to React JS, JavaScript, HTML, CSS,
-            Sass. Will propably expand to other areas in future. So, we can both
-            learn the unknowns together.
+            I created this web site with the intent of sharing information on
+            web development practices, tutorials. This blog contains articles
+            and tutorials about Reactjs, JavaScript, HTML, CSS, Sass. It will
+            probably extend into other areas going forward. So, We can learn
+            about unknowns together.
           </Typography>
         </Box>
         <Box
           className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
         >
           <Typography paragraph={true}>
-            If you like to follow me, find me on
+            If you're interested in following me, find me.
           </Typography>
           <Container className={`${classes.centerAlign}`}>
             <IconButton
