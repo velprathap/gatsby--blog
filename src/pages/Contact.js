@@ -86,10 +86,10 @@ const Contact = ({ data, location }) => {
             Get in touch!
           </Typography>
           <Typography className={classes.paraTypo} paragraph={true}>
-            Have a feedback? We'd love to hear from you.
+            You have any feedback? We'd love to hear from you.
           </Typography>
           <Typography className={classes.paraTypo} paragraph={true}>
-            Connect with us through the following ways.
+            Contact us with any of the following.
           </Typography>
         </Box>
         <Box className={`${classes.centerAlign}`}>
