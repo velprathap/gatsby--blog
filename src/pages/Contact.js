@@ -7,15 +7,14 @@ import {
   Box,
   Paper,
   Typography,
-  Container,
   makeStyles,
   Grid,
-  IconButton,
+  Button,
 } from "@material-ui/core"
 import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
-import GitHubIcon from "@material-ui/icons/GitHub"
-import contact from "../images/contact-us.png"
+import FacebookIcon from "@material-ui/icons/Facebook"
+import MailOutline from "@material-ui/icons/MailOutline"
 
 const useStyles = makeStyles({
   centerAlign: {
@@ -37,7 +36,6 @@ const useStyles = makeStyles({
   },
   mailContainer: {
     flexDirection: "column",
-    margin: "2rem 0",
   },
   bold: {
     fontWeight: "bold",
@@ -45,22 +43,29 @@ const useStyles = makeStyles({
   paraTypo: {
     textAlign: "center",
   },
-  imgRoot: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  img: {
-    height: "450px",
-  },
-  github: {
-    fill: "#4078c0"
+  facebook: {
+    fill: "#4078c0",
   },
   instagram: {
     fill: "#E4405F",
   },
   twitter: {
     fill: "#1DA1F2",
+  },
+  btnRoot: {
+    margin: "0.5rem 0",
+  },
+  btn: {
+    width: "220px",
+  },
+  paperSize: {
+    height: "320px",
+    width: "320px",
+  },
+  mailIcon: {
+    height: "100px",
+    width: "100px",
+    fill: "#1976d2",
   },
 })
 
@@ -74,13 +79,43 @@ const Contact = ({ data, location }) => {
       <Paper
         className={`${classes.paperRoot} ${classes.centerAlign} ${classes.columnDirection}`}
       >
-        <Box className={`${classes.boxRoot} ${classes.centerAlign}`}>
-          <Typography variant="h4">Get in touch!</Typography>
+        <Box
+          className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
+        >
+          <Typography variant="h4" className={classes.gridContent}>
+            Get in touch!
+          </Typography>
+          <Typography className={classes.paraTypo} paragraph={true}>
+            Have a feedback? We'd love to hear from you.
+          </Typography>
+          <Typography className={classes.paraTypo} paragraph={true}>
+            Connect with us through the following ways.
+          </Typography>
         </Box>
-        <Box className={`${classes.boxRoot} ${classes.centerAlign}`}>
+        <Box className={`${classes.centerAlign}`}>
           <Grid container>
-            <Grid item xs={12} sd={6} md={6} className={classes.imgRoot}>
-              <img src={contact} alt="Contact" className={classes.img} />
+            <Grid
+              item
+              xs={12}
+              sd={6}
+              md={6}
+              className={`${classes.centerAlign} ${classes.gridContent}`}
+            >
+              <Paper
+                className={`${classes.paperSize} ${classes.mailContainer} ${classes.centerAlign}`}
+              >
+                <Box>
+                  <Typography className={classes.bold} variant="h6">
+                    Email
+                  </Typography>
+                </Box>
+                <Box
+                  className={`${classes.centerAlign} ${classes.columnDirection}`}
+                >
+                  <MailOutline className={classes.mailIcon} />
+                  <Typography variant="h6">codingsparkles@gmail.com</Typography>
+                </Box>
+              </Paper>
             </Grid>
             <Grid
               className={`${classes.gridContent} ${classes.centerAlign} ${classes.columnDirection}`}
@@ -89,48 +124,55 @@ const Contact = ({ data, location }) => {
               sd={6}
               md={6}
             >
-              <Typography className={classes.paraTypo} paragraph={true}>
-                Have a feedback? We'd love to hear from you. Connect with us
-                through the following ways.
-              </Typography>
-              <Container
-                className={`${classes.mailContainer} ${classes.centerAlign}`}
+              <Paper
+                className={`${classes.paperSize} ${classes.centerAlign} ${classes.columnDirection}`}
               >
-                <Typography className={classes.bold} variant="h6">
-                  Email:
-                </Typography>
-                <Typography variant="h6">codingsparkles@gmail.com</Typography>
-              </Container>
-              <Container
-                className={`${classes.centerAlign} ${classes.columnDirection}`}
-              >
-                <Typography className={classes.bold} variant="h6">
-                  Socials:
-                </Typography>
                 <Box>
-                  <IconButton
-                    href="https://www.github.com/codingsparkles"
-                    aria-label="Go to My Github"
-                    target="_blank"
-                  >
-                    <GitHubIcon className={classes.github} />
-                  </IconButton>
-                  <IconButton
-                    href="https://www.instagram.com/codingsparkles"
-                    aria-label="Go to My Instagram"
-                    target="_blank"
-                  >
-                    <InstagramIcon className={classes.instagram} />
-                  </IconButton>
-                  <IconButton
-                    href="https://www.twitter.com/codingsparkles"
-                    aria-label="Go to My Twitter"
-                    target="_blank"
-                  >
-                    <TwitterIcon className={classes.twitter} />
-                  </IconButton>
+                  <Typography className={classes.bold} variant="h6">
+                    Socials
+                  </Typography>
                 </Box>
-              </Container>
+                <Box>
+                  <Box className={classes.btnRoot}>
+                    <Button
+                      className={classes.btn}
+                      variant="outlined"
+                      startIcon={
+                        <InstagramIcon className={classes.instagram} />
+                      }
+                      href="https://www.instagram.com/codingsparkles"
+                      aria-label="Go to My Instagram"
+                      target="_blank"
+                    >
+                      Instagram
+                    </Button>
+                  </Box>
+                  <Box className={classes.btnRoot}>
+                    <Button
+                      className={classes.btn}
+                      variant="outlined"
+                      startIcon={<FacebookIcon className={classes.facebook} />}
+                      href="https://www.instagram.com/codingsparkles"
+                      aria-label="Go to My Instagram"
+                      target="_blank"
+                    >
+                      Facebook
+                    </Button>
+                  </Box>
+                  <Box className={classes.btnRoot}>
+                    <Button
+                      className={classes.btn}
+                      variant="outlined"
+                      startIcon={<TwitterIcon className={classes.twitter} />}
+                      href="https://www.twitter.com/codingsparkles"
+                      aria-label="Go to My Twitter"
+                      target="_blank"
+                    >
+                      Twitter
+                    </Button>
+                  </Box>
+                </Box>
+              </Paper>
             </Grid>
           </Grid>
         </Box>

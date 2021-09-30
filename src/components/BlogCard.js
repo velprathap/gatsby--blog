@@ -23,6 +23,7 @@ const useStyles = makeStyles({
   },
   readLink: {
     textDecoration: "none",
+    height: "20px",
 
     "& :hover": {
       borderBottom: "1px solid #1976d2",

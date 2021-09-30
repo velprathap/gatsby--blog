@@ -1,6 +1,6 @@
-const path = require(`path`);
-const _ = require("lodash");
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const path = require(`path`)
+const _ = require("lodash")
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -10,31 +10,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
-        {
-          allMarkdownRemark(
-            sort: { fields: [frontmatter___date], order: ASC }
-            limit: 1000
-          ) {
-            edges {
-              node {
-                id
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                  tags
-                }
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: ASC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                tags
               }
             }
           }
-          tagsGroup: allMarkdownRemark(limit: 2000) {
-            group(field: frontmatter___tags) {
-              fieldValue
-            }
         }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
+          }
         }
-      `
+      }
+    `
   )
 
   if (result.errors) {
@@ -45,9 +45,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.edges;
-  const postsPerPage = 3;
-  const numPages = Math.ceil(posts.length / postsPerPage);
+  const posts = result.data.allMarkdownRemark.edges
+  const postsPerPage = 9
+  const numPages = Math.ceil(posts.length / postsPerPage)
   // Create blog posts pages
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -60,11 +60,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         currentPage: i + 1,
       },
     })
-  });
+  })
 
   //create page for each post
   posts.forEach((post, index) => {
-    console.log(post);
+    console.log(post)
 
     createPage({
       path: post.node.fields.slug,
@@ -72,10 +72,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         slug: post.node.fields.slug,
         previous: index === 0 ? null : posts[index - 1].node,
-        next: index === posts.length - 1 ? null : posts[index + 1].node
-      }
+        next: index === posts.length - 1 ? null : posts[index + 1].node,
+      },
     })
-  });
+  })
 
   // Extract tag data from query and create page
   result.data.tagsGroup.group.forEach(tag => {
@@ -87,14 +87,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
-
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const value = createFilePath({ node, getNode })
 
     createNodeField({
       name: `slug`,

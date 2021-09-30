@@ -14,7 +14,6 @@ import {
 import InstagramIcon from "@material-ui/icons/Instagram"
 import TwitterIcon from "@material-ui/icons/Twitter"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
-import profile from "../images/profile-pic.png"
 
 const useSyles = makeStyles(theme => ({
   centerAlign: {
@@ -28,41 +27,19 @@ const useSyles = makeStyles(theme => ({
   paperRoot: {
     minHeight: "80vh",
   },
-  paddingRoot: {
-    padding: "1rem",
-  },
   typoRoot: {
     padding: "0 1rem",
   },
-  leftAlignRoot: {
-    alignSelf: "flex-start",
-  },
   titleRoot: {
     margin: "1rem",
-    [theme.breakpoints.down("sm")]: {
-      margin: "0",
-    },
+    width: "230px",
   },
   boxRoot: {
-    minHeight: "25vh",
-    width: "40%",
+    width: "50%",
 
     [theme.breakpoints.down("sm")]: {
       width: "100%",
-      padding: "1rem",
     },
-  },
-  contentRoot: {
-    padding: "3rem",
-    [theme.breakpoints.down("sm")]: {
-      padding: ".5rem 1rem",
-    },
-  },
-  imgRoot: {
-    height: "250px",
-    width: "250px",
-    borderRadius: "50%",
-    margin: "1rem",
   },
   instagram: {
     fill: "#E4405F",
@@ -87,46 +64,37 @@ const About = ({ data, location }) => {
       >
         <Box className={classes.titleRoot}>
           <Typography className={classes.typoRoot} variant="h5">
-            {" "}
-            Welcome! Learners{" "}
+            Hi and welcome to CodingSparkles!
           </Typography>
         </Box>
         <Box
           className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
         >
           <Typography className={classes.typoRoot} paragraph={true}>
-            CodingSparkles was created in the year 2021 with an intention to
-            share the information about the web development examples, tutorials.
-          </Typography>
-          <Typography className={classes.typoRoot} paragraph={true}>
-            This blog contains the articles and tutorials related to the
-            technologies React JS, JavaScript, HTML, CSS, Sass, etc.
-          </Typography>
-          <Typography
-            className={`${classes.typoRoot} ${classes.leftAlignRoot}`}
-            paragraph={true}
-          >
-            This blog is maintained by Velmurugan Sivaprakasam.
+            I am Velmurugan Sivaprakasam, the man behind CodingSparkles. I am a
+            web developer focusing on Front End Development. Who is loving to
+            share the known and learn the unknown. I am excited to connect with
+            you all through this website and learn more along with you.
           </Typography>
         </Box>
         <Box
           className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
         >
-          <img src={profile} alt="profile" className={classes.imgRoot} />
           <Typography className={classes.typoRoot} paragraph={true}>
-            Founder and Editor
-          </Typography>
-          <Typography className={classes.typoRoot} paragraph={true}>
-            I am a Front End Developer who is loving to learn and share
-            knowledge. I am excited to connect with you all through this blog
-            website and learn more along with you.
+            I created this website with an intention to share the information
+            about web development practices, tutorials. This blog contains the
+            articles and tutorials related to React JS, JavaScript, HTML, CSS,
+            Sass. Will propably expand to other areas in future. So, we can both
+            learn the unknowns together.
           </Typography>
         </Box>
-        <Box>
-          <Typography variant="h6">Keep me connected</Typography>
-          <Container
-            className={`${classes.centerAlign} ${classes.paddingRoot}`}
-          >
+        <Box
+          className={`${classes.boxRoot} ${classes.centerAlign} ${classes.columnDirection}`}
+        >
+          <Typography paragraph={true}>
+            If you like to follow me, find me on
+          </Typography>
+          <Container className={`${classes.centerAlign}`}>
             <IconButton
               href="https://www.linkedin.com/in/velmurugan-sivapraksam-4aa108174"
               aria-label="Go to My LinkedIn"
@@ -149,7 +117,7 @@ const About = ({ data, location }) => {
               <TwitterIcon className={classes.twitter} />
             </IconButton>
           </Container>
-          <Typography className={classes.paddingRoot} variant="h6">Happy Learning!</Typography>
+          <Typography variant="h6">Happy Learning!</Typography>
         </Box>
       </Paper>
     </Layout>
