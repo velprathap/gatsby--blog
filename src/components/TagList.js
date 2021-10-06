@@ -1,10 +1,14 @@
 import React from "react"
 import kebabCase from "lodash/kebabCase"
 import { useStaticQuery, Link, graphql } from "gatsby"
-import { Paper, Chip, makeStyles } from "@material-ui/core"
+import { Paper, Chip, makeStyles, Typography, Box } from "@material-ui/core"
 
 const useStyles = makeStyles({
-  paperRoot: {
+  typoRoot: {
+    textAlign: "center",
+    padding: ".5rem",
+  },
+  boxRoot: {
     display: "flex",
     flexWrap: "wrap",
   },
@@ -41,7 +45,7 @@ const TagList = () => {
     if (tag === "React JS") {
       return "reactBg"
     }
-    if (tag === "Css") {
+    if (tag === "CSS") {
       return "csstBg"
     }
     if (tag === "Sass") {
@@ -69,21 +73,26 @@ const TagList = () => {
   `)
 
   return (
-    <Paper className={classes.paperRoot}>
-      {data.allMarkdownRemark.group.map(tag => (
-        <Link
-          key={tag.fieldValue}
-          className={classes.chipRoot}
-          to={`/tags/${kebabCase(tag.fieldValue)}/`}
-        >
-          <Chip
+    <Paper>
+      <Box className={classes.typoRoot}>
+        <Typography variant="h6">Explore Topics</Typography>
+      </Box>
+      <Box className={classes.boxRoot}>
+        {data.allMarkdownRemark.group.map(tag => (
+          <Link
             key={tag.fieldValue}
-            className={classes[getClassName(tag.fieldValue)]}
-            label={`${tag.fieldValue} (${tag.totalCount})`}
-            size="medium"
-          />
-        </Link>
-      ))}
+            className={classes.chipRoot}
+            to={`/tags/${kebabCase(tag.fieldValue)}/`}
+          >
+            <Chip
+              key={tag.fieldValue}
+              className={classes[getClassName(tag.fieldValue)]}
+              label={`${tag.fieldValue} (${tag.totalCount})`}
+              size="medium"
+            />
+          </Link>
+        ))}
+      </Box>
     </Paper>
   )
 }

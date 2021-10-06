@@ -17,6 +17,9 @@ const useStyles = makeStyles({
   },
   cardRoot: {
     height: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "column"
   },
   actionRoot: {
     justifyContent: "center",

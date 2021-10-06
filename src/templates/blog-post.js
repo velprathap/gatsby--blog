@@ -36,6 +36,7 @@ const useStyles = makeStyles({
   btnRoot: {
     display: "flex",
     alignItems: "center",
+    padding: "0 0.5rem"
   },
   linkTextContainer: {
     textDecoration: "none",
@@ -91,7 +92,7 @@ const BlogPostTemplate = props => {
     if (tag === "React JS") {
       return { backgroundColor: "#DEF3FD" }
     }
-    if (tag === "Css") {
+    if (tag === "CSS") {
       return { backgroundColor: "#FFEFD8" }
     }
     if (tag === "Sass") {
