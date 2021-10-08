@@ -138,16 +138,18 @@ module.exports = {
         icon: `${__dirname}/src/images/codingsparkles.jpg`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       `roboto`,
-    //       `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
-    //     ],
-    //     display: 'swap'
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-gitalk`,
+      options: {
+        config: {
+          clientID: 'ff5428e30c78fc69d205',
+          clientSecret : '912978e3df217051664d994cbdd8e1a3ea81b5cf',
+          repo: 'gatsby--blog',
+          owner: 'velprathap',
+          admin: ["velprathap"]
+        }
+      }
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

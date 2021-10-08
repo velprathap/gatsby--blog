@@ -14,6 +14,8 @@ import {
 import Img from "gatsby-image"
 import ArrowBack from "@material-ui/icons/ArrowBack"
 import ArrowForward from "@material-ui/icons/ArrowForward"
+import SocialShare from "../components/SocialShare"
+import Comments from "../components/Comments"
 
 const useStyles = makeStyles({
   root: {
@@ -23,6 +25,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    textAlign: "center",
   },
   boxRoot: {
     display: "flex",
@@ -36,14 +39,14 @@ const useStyles = makeStyles({
   btnRoot: {
     display: "flex",
     alignItems: "center",
-    padding: "0 0.5rem"
+    padding: "0 1rem",
   },
   linkTextContainer: {
     textDecoration: "none",
 
     "& :hover": {
-      color: "#1976d2"
-    }
+      color: "#1976d2",
+    },
   },
   footerGrid: {
     padding: "1rem",
@@ -84,6 +87,7 @@ const BlogPostTemplate = props => {
     (post.frontmatter.thumb && post.frontmatter.thumb.childImageSharp.fluid) ||
     null
   const tags = post.frontmatter.tags
+  const url = typeof window !== "undefined" ? window.location.href : ""
 
   const getStyle = tag => {
     if (tag === "JavaScript") {
@@ -142,12 +146,12 @@ const BlogPostTemplate = props => {
               <Paper>
                 <Img fluid={imgSrc} />
               </Paper>
-              <Typography
-                paragraph={true}
+              <div
                 dangerouslySetInnerHTML={{ __html: post.html }}
                 itemProp="articleBody"
               />
             </article>
+            <SocialShare url={url} post={post} tags={tags} />
           </Paper>
           <Grid container className={classes.footerGrid}>
             <Grid item xs={6} sm={6} md={6}>
@@ -209,6 +213,7 @@ const BlogPostTemplate = props => {
               )}
             </Grid>
           </Grid>
+          <Comments post={post} />
         </Grid>
         <Grid item xs={12} sm={3} md={3}>
           <TagList />

@@ -1,7 +1,7 @@
 ---
 title: Three Possible Ways to Removing First Item from Array (Array of Objects)
 date: "2021-09-05T04:00:00.284Z"
-description: Removing an item from the list will be more useful, while working on the applications like appointment planner. Because we may need to remove the particular appointment from the list of appointments. In this article, we will explore three different methods of removing an item from the list. ...
+description: Removing an item from the list will be more useful, while working on the applications like appointment planner. Because we may need to remove the particular appointment from the list of appointments...
 thumb: RemoveItem.jpg
 tags: ["JavaScript"]
 ---
