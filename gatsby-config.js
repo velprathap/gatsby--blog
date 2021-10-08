@@ -146,7 +146,8 @@ module.exports = {
           clientSecret : '912978e3df217051664d994cbdd8e1a3ea81b5cf',
           repo: 'gatsby--blog',
           owner: 'velprathap',
-          admin: ["velprathap"]
+          admin: ["velprathap"],
+          distractionFreeMode: false
         }
       }
     },

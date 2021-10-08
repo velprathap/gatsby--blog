@@ -2,11 +2,11 @@
 title: Different Use Cases of Spread Operator in JavaScript
 date: "2021-10-06T12:30:00.284Z"
 description: In this article, we are going to learn about the different use cases of the spread operator (...) in JavaScript...
-thumb: SortingArray.jpg
+thumb: Spread.jpg
 tags: ["JavaScript"]
 ---
 
-<div class="photo-details">Photo by <a href="https://unsplash.com/@uxindo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">UX Indonesia</a> on <a href="https://unsplash.com/s/photos/sorting?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
+<div class="photo-details">Photo by <a href="https://unsplash.com/@martinadams?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Martin Adams</a> on <a href="https://unsplash.com/s/photos/spread?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
 
 In this article, we are going to learn about the different use cases of the spread operator (...) in JavaScript.
 

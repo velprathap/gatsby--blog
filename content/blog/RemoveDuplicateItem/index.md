@@ -2,10 +2,10 @@
 title: Five Possible Ways of Removing Duplicate Item from Array
 date: "2021-10-06T02:00:00.284Z"
 description: In this article, we are going to learn about the five possible ways of removing duplicate item from an Array...
-thumb: RemoveItem.jpg
+thumb: Duplicate.jpg
 tags: ["JavaScript"]
 ---
-<div class="photo-details">Image by <a href="https://pixabay.com/users/bru-no-1161770/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3114364">Bruno /Germany</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3114364">Pixabay</a></div>
+<div class="photo-details">Photo by <a href="https://unsplash.com/@dear_jondog?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jonathan Daniels</a> on <a href="https://unsplash.com/@skyestudios?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></div>
 
 In this article, we are going to learn about the five possible ways of removing duplicate item from an Array.
 
